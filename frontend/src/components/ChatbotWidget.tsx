@@ -14,6 +14,28 @@ const ChatbotWidget: React.FC = () => {
   const messagesRef = useRef(null);
   const toggleChat = () => setIsOpen(!isOpen);
 
+  useEffect(() => {
+    try {
+      fetch(`http://localhost:5000/api/history`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      }).then((response) =>
+        response.json().then((data) => {
+          console.log(data);
+          setMessages(data);
+        })
+      );
+    } catch (error) {
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "Error: Unable to fetch response." },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   const sendMessage = async () => {
     if (!userInput.trim()) return;
 
@@ -27,6 +49,7 @@ const ChatbotWidget: React.FC = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userInput }),
+        credentials: "include",
       });
       const data = await response.json();
       setMessages((prev) => [...prev, { sender: "bot", text: data.response }]);
@@ -51,7 +74,7 @@ const ChatbotWidget: React.FC = () => {
     if (element) {
       element["scrollTop"] = element["scrollHeight"];
     }
-  }, [messages]);
+  }, [messages, isOpen]);
   return (
     <div className="chatbot-widget">
       {!isOpen && (
