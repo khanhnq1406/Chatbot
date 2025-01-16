@@ -115,7 +115,7 @@ const ChatbotWidget: React.FC = () => {
               placeholder="Type your message..."
               onKeyDown={handleKeyDown}
             />
-            <button onClick={sendMessage} disabled={loading}>
+            <button onClick={sendMessage} disabled={loading} className="send">
               <img style={{ width: "20px" }} src="/send.png" alt="Send" />
             </button>
           </div>

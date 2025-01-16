@@ -32,7 +32,8 @@ This is a chatbot interface that provides useful responses based on user inputs
 Chatbot/
 ├─ backend/
 ├─ frontend/
-├─ RAG/ (dataset for Retrieval-Augmented Generation )
+├─ RAG/ (dataset for Retrieval-Augmented Generation)
+├─ test_result/ (results of the basic tests)
 ├─ .gitignore
 ├─ docker-compose.yml
 ├─ README.md
@@ -140,3 +141,46 @@ const model = genAI.getGenerativeModel({
   safe,
 });
 ```
+
+# Test report
+
+## Frontend
+
+I have used Jest, React Testing Library, and Lighthouse for testing the frontend components.
+
+### Testcases
+
+- Renders chatbot and opens/closes widget
+- Sends a message and displays it
+- Lighthouse testing tool
+
+### Result
+
+#### Unit tests
+
+<img src="./test_results/frontend.png" width="600"/>
+
+#### Performance Benchmarks
+
+<img src="./test_results/lighthouse.png" width="600"/>
+
+## Backend
+
+I have used Jest, Supertest and Autocannon for testing the backend API.
+
+### Testcases
+
+- GET `/history` returns conversation history
+- POST `/chat` sends a message and returns a bot response
+
+### Result
+
+#### Unit tests
+
+<img src="./test_results/backend.png" width="600"/>
+
+#### Basic Performance Benchmarks
+
+<img src="./test_results/10connections.png" width="600"/>
+<img src="./test_results/50connections.png" width="600"/>
+<img src="./test_results/100connections.png" width="600"/>
