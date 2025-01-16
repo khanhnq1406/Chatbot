@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChatHeader } from "./ChatHeader";
+import { StartScreen } from "./StartScreen";
 
 interface Message {
   sender: string;
@@ -93,6 +94,7 @@ const ChatbotWidget: React.FC = () => {
                 <div className="text">{msg.text}</div>
               </div>
             ))}
+            {messages.length === 0 ? <StartScreen /> : null}
             {loading && (
               <div className="message typing">
                 Typing

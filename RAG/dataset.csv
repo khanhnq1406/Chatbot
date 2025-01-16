@@ -1,0 +1,21 @@
+Question,Answer,Tags
+"What is SQL Injection?","SQL Injection is a code injection technique that exploits vulnerabilities in a database layer by injecting malicious SQL statements.",SQL Injection,Database Security
+"How to prevent SQL Injection?","To prevent SQL Injection, use parameterized queries, prepared statements, and input validation.",SQL Injection,Database Security
+"What is Cross-Site Scripting (XSS)?","Cross-Site Scripting (XSS) is a vulnerability that allows attackers to inject malicious scripts into web pages viewed by users.",XSS,Web Security
+"How to prevent XSS?","To prevent XSS, use output encoding, content security policies, and input validation.",XSS,Web Security
+"What is the OWASP Top 10?","The OWASP Top 10 is a list of the most critical security risks to web applications, published by the OWASP Foundation.",OWASP,General Security
+"How can I secure web applications?","Secure web applications by implementing authentication, access control, input validation, and regular security testing.",Web Security,Application Security
+"What is CSRF?","CSRF (Cross-Site Request Forgery) is an attack that tricks users into executing unwanted actions on a web application in which they're authenticated.",CSRF,Web Security
+"How to prevent CSRF?","To prevent CSRF, use anti-CSRF tokens, verify the origin of requests, and implement SameSite cookies.",CSRF,Web Security
+"What is sensitive data exposure?","Sensitive data exposure occurs when an application inadvertently exposes sensitive information, such as personal data or credentials.",Data Exposure,General Security
+"How to protect sensitive data?","Protect sensitive data using encryption, secure communication channels, and proper access controls.",Data Exposure,General Security
+"What is broken authentication?","Broken authentication refers to vulnerabilities that allow attackers to compromise user credentials or session IDs.",Broken Authentication,Access Control
+"How to prevent broken authentication?","Prevent broken authentication by enforcing strong password policies, multi-factor authentication, and session management.",Broken Authentication,Access Control
+"What is security misconfiguration?","Security misconfiguration occurs when security settings are not implemented correctly, exposing vulnerabilities.",Security Misconfiguration,General Security
+"How to avoid security misconfiguration?","Avoid security misconfiguration by applying least privilege, disabling unnecessary features, and ensuring secure default settings.",Security Misconfiguration,General Security
+"What is Insecure Deserialization?","Insecure deserialization occurs when untrusted data is used to abuse the logic of an application, often leading to RCE.",Insecure Deserialization,Web Security
+"How to prevent insecure deserialization?","Prevent insecure deserialization by validating input data and avoiding the use of unsafe deserialization methods.",Insecure Deserialization,Web Security
+"What is broken access control?","Broken access control occurs when users can perform unauthorized actions or access restricted resources.",Broken Access Control,Access Control
+"How to fix broken access control?","Fix broken access control by implementing role-based access control (RBAC) and verifying access permissions consistently.",Broken Access Control,Access Control
+"What is a buffer overflow?","A buffer overflow occurs when a program writes more data to a buffer than it can hold, leading to crashes or code execution.",Buffer Overflow,Memory Safety
+"How to prevent buffer overflow?","Prevent buffer overflow by using safe programming languages, enabling bounds checking, and avoiding unsafe functions.",Buffer Overflow,Memory Safety

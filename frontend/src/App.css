@@ -206,7 +206,18 @@
   align-items: center;
   gap: 10px;
 }
+.start-screen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  align-content: center;
+}
 
+.start-screen img {
+  width: 70%;
+}
 @media (max-width: 600px) {
   .chat-interface {
     height: 90vh;
