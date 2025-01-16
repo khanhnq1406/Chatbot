@@ -42,7 +42,18 @@ function saveContext(req, context) {
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const safe = {
+  HARM_CATEGORY_HARASSMENT: "BLOCK_NONE",
+  HARM_CATEGORY_HATE_SPEECH: "BLOCK_NONE",
+  HARM_CATEGORY_SEXUALLY_EXPLICIT: "BLOCK_NONE",
+  HARM_CATEGORY_DANGEROUS_CONTENT: "BLOCK_NONE",
+  HARM_CATEGORY_CIVIC_INTEGRITY: "BLOCK_NONE",
+  HARM_CATEGORY_UNSPECIFIED: "BLOCK_NONE",
+};
+const model = genAI.getGenerativeModel({
+  model: "tunedModels/dataset-vvqz5lfatlbc",
+  safe,
+});
 
 app.post("/api/chat", async (req, res) => {
   const { message } = req.body;
