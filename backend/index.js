@@ -5,14 +5,16 @@ const bodyParser = require("body-parser");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const session = require("express-session");
 const Redis = require("ioredis");
+const { REDIS_URL, CLIENT_URL } = require("./constants");
 const RedisStore = require("connect-redis").default;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
-const redisClient = new Redis("redis://host.docker.internal:6379");
+const redisClient = new Redis(REDIS_URL);
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: CLIENT_URL,
     credentials: true,
   })
 );
@@ -81,4 +83,4 @@ app.get("/api/history", (req, res) => {
   res.send(context);
 });
 
-app.listen(5000, () => console.log("Server running on http://localhost:5000"));
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

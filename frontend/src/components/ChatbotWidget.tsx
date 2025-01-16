@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChatHeader } from "./ChatHeader";
 import { StartScreen } from "./StartScreen";
+import { BACKEND_URL } from "../constants";
 
 interface Message {
   sender: string;
@@ -17,7 +18,7 @@ const ChatbotWidget: React.FC = () => {
 
   useEffect(() => {
     try {
-      fetch(`http://localhost:5000/api/history`, {
+      fetch(`${BACKEND_URL}/api/history`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -46,7 +47,7 @@ const ChatbotWidget: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/chat", {
+      const response = await fetch(`${BACKEND_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userInput }),
